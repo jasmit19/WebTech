@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <h1>setInterval function</h1>
+    <h2>clearInterval function</h2>
+    <h3>setTimeout</h3>
+</head>
+<body>
+    <p>timer will set</p>
+    <p id="clock"></p>
+    <script>
+        let count=0;
+        function myclock()
+        {
+            console.log(count);
+            count++;
+        }
+        setInterval(myclock,1000);
+
+        setTimeout(()=>
+        {
+            console.log("timeout sfter 5 sec");
+        },5000);
+        
+         const t=setInterval(()=>
+        {
+                console.log(count);
+                count++;
+
+                if(count>10)
+            {
+                clearInterval(t);
+                console.log("countdown finished");
+            }
+         },1000);
+
+    </script>
+</body>
+</html>

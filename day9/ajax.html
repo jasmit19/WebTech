@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AJAX Text Loader</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    #displayBox {
+      margin-top: 20px;
+      padding: 15px;
+      border: 1px solid #ccc;
+      font-family: 'Georgia', serif;
+      font-size: 20px;
+      color: #2c3e50;
+      background-color: #f9f9f9;
+    }
+  </style>
+</head>
+<body>
+
+<button id="loadBtn">Load Quote</button>
+<div id="displayBox">Quote will appear here...</div>
+
+<script>
+  $('#loadBtn').click(function() {
+    $.ajax({
+      url: 'quote.txt',
+      method: 'GET',
+      success: function(data) {
+        $('#displayBox').text(data);
+      },
+      error: function() {
+        $('#displayBox').text('Failed to load quote. Please check the file path.');
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

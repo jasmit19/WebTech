@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>jQuery Fade Toggle Example</title>
+  //library of
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <style>
+    #fadeBox {
+      width: 200px;
+      height: 200px;
+      background-color: steelblue;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+
+  <button id="fadeButton">Fade In/Out</button>
+  <div id="fadeBox">I will fade away!</div>
+
+  <script>
+    $(document).ready(function(){
+      // Attach a click event to the button
+      $("#fadeButton").click(function(){
+        // Fade toggle the div's visibility
+        $("#fadeBox").fadeToggle();
+      });
+    });
+  </script>
+</body>
+</html>

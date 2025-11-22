@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Load Data with Promise</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    #output { margin-top: 20px; font-family: Arial; }
+    .post { margin-bottom: 10px; padding: 10px; border: 1px solid #ccc; }
+  </style>
+</head>
+<body>
+
+<button id="loadBtn">Load Yesterday's Data</button>
+<div id="output"></div>
+
+<script>
+  function fetchData() {
+    return new Promise((resolve, reject) => {
+      $.get('https://jsonplaceholder.typicode.com/posts', function(data) {
+        resolve(data.slice(0, 10)); // Simulate "yesterday's" top 10 posts
+      }).fail(function() {
+        reject("Failed to load data.");
+      });
+    });
+  }
+
+  $('#loadBtn').click(function() {
+    $('#output').html("Loading...");
+    fetchData()
+      .then(posts => {
+        $('#output').empty();
+        posts.forEach(post => {
+          $('#output').append(`<div class="post"><strong>ID:</strong> ${post.id}<br><strong>Title:</strong> ${post.title}</div>`);
+        });
+      })
+      .catch(error => {
+        $('#output').html(`<span style="color:red;">${error}</span>`);
+      }) 
+      .finally(() => {
+        console.log("Data fetch attempt completed.");
+      });
+  });
+</script>
+
+</body>
+</html>

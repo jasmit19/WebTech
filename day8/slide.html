@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>jQuery Effects Demo</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    #quoteBox {
+      display: none;
+      background-color: #e0f7fa;
+      font-family: 'Georgia', serif;
+      font-size: 24px;
+      color: #006064;
+      padding: 20px;
+      margin-top: 20px;
+      border: 2px solid #006064;
+      width: fit-content;
+    }
+
+    button {
+      margin: 5px;
+      padding: 10px 15px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+
+<button id="slideDownBtn">Slide Down</button>
+<button id="slideUpBtn">Slide Up</button>
+<button id="fadeInBtn">Fade In</button>
+<button id="fadeOutBtn">Fade Out</button>
+<button id="toggleBtn">Toggle</button>
+
+<div id="quoteBox">“Today is going to be a great day!”</div>
+
+<script>
+  $('#slideDownBtn').click(function() {
+    $('#quoteBox').slideDown('slow');
+  });
+
+  $('#slideUpBtn').click(function() {
+    $('#quoteBox').slideUp('slow');
+  });
+
+  $('#fadeInBtn').click(function() {
+    $('#quoteBox').fadeIn('slow');
+  });
+
+  $('#fadeOutBtn').click(function() {
+    $('#quoteBox').fadeOut('slow');
+  });
+
+  $('#toggleBtn').click(function() {
+    $('#quoteBox').toggle('slow');
+  });
+</script>
+
+</body>
+</html>

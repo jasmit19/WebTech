@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>jQueary Content change exmample</title>
+    <!-- It links the jQuery library to your webpage. You're essentially "borrowing" a set of pre-written JavaScript functions from Google's servers-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+    <!--This creates a <div> (a division or container) on the page. It has an id of "myDIV" and initially contains the text "Hello World". The id is like a unique name you give to an element so you can easily find and work with it later-->
+    <div id="myDIV">This is for .text</div>
+    <div id="myID">This is for .hide</div>
+    <button id="changeTextButton">CLICK ME!!!</button>
+    <!--his creates a button on the page. It also has a unique id of "changeTextButton" and the text "CLICK ME"-->
+
+    <script>
+
+//this creates a button on the page. It also has a unique id of "changeTextButton" and the text "CLICK ME"
+$(document).ready(function()
+{
+    //This part uses a jQuery selector to "find" the button with the id of "changeTextButton".   The # symbol is how jQuery identifies an element by its ID.
+    $("#changeTextButton").click(function()
+    //This tells the browser to "listen" for a click event on that button. When the button is clicked, the code inside these parentheses will run.
+{
+        //changes the text content of the selected element
+        $("#myDIV").text("i am updated");
+        //.text changes the text content of the selected element
+
+        $("#myID").hide("i am hidden");
+});
+});
+
+</script>
+</body>
+</html>

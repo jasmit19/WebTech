@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <h1>setInterval() with a Callback</h1>
+    <h2>JavaScript Functions</h2>
+</head>
+<body>
+    <P>The time will update every second</P>
+    <h2 id="liveClock"></h2>
+
+<script>
+    //myFunction is a "callback" function which is called back here
+    //1000 represents the time intervals i.e. 1 second
+    setInterval(myFunction,1000);
+
+    function myFunction()
+    {
+        //new object "date" is created and it will be called by element "t"
+        let t=new Date();
+        
+        //replace "liveClock" by live time using time functions
+        //.innerHTML: This property allows us to change the content inside an HTML element
+        //document.getElementById("liveClock"): This is how JavaScript interacts with the HTML. It's a method that finds the HTML element with the ID we specified earlier, which is liveClock.
+        document.getElementById("liveClock").innerHTML = 
+        t.getHours() + ":" + 
+        t.getMinutes() + ":" + 
+        t.getSeconds();
+    }
+</script>
+</body>
+</html>

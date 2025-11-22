@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+<body>
+
+    <h1>Javascript functions</h1>
+    <h2>Callback functions</h2>
+    
+    <p>The sum of elemnts=</p>
+    <p id="demo" ></p>
+<script>
+
+    //"something" gets content of .innerHTML
+    function myDisplayer(something)
+    {
+        //replace "demo" by "something"
+        //.innerHTML: This property allows us to change the content inside an HTML element
+        //document.getElementById("demo"): This is how JavaScript interacts with the HTML. It's a method that finds the HTML element with the ID we specified earlier, which is "demo"//
+        document.getElementById("demo").innerHTML=something;
+    }
+
+    function myCalculator(n1,n2,myCallback) //this is where the myCallback function comes in
+    {
+        let sum=n1+n2;
+
+        //This line calls the function that was passed as an argument (myCallback) and passes the sum as its own argument
+        myCallback(sum);
+    }
+
+    //myCallBack(sum) is executed
+    myCalculator(5,5,myDisplayer);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Information from the user</title>
+    <style>
+        body {
+            font-family: arial,sans-serif;
+            margin: 10px;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        input {
+            margin-right: 5px;
+            padding: 10px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100px;
+            margin-top: 20px;
+        }
+        td,th {
+            border: 1px solid #e07474;
+            padding: 20px;
+            text-align: left;
+        }
+        th {
+            background-color: rgb(151, 80, 218);
+        }
+    </style>
+</head>
+<body>
+     <form id="dataForm">
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" required>
+
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" required>
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" required>
+
+        <button type="submit">Add User</button>
+    </form>
+
+    <h2>User Data Table</h2>
+    <table id="userTable">
+        <thead>
+            <tr>
+</body>
+</html>

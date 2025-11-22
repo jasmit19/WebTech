@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Short AJAX Form</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <form id="myForm">
+    <input type="text" id="title" required minlength="3" maxlength="20" placeholder="Title"><br>
+    <textarea id="body" required minlength="5" maxlength="100" placeholder="Body"></textarea><br>
+    <button type="submit">Add</button>
+  </form>
+  <div id="result"></div>
+
+  <script>
+    $('#myForm').on('submit', function(e) {
+      e.preventDefault();
+      if (!this.checkValidity()) {
+        this.reportValidity();
+        return;
+      }
+      $.post('https://jsonplaceholder.typicode.com/posts', {
+        title: $('#title').val(),
+        body: $('#body').val(),
+        userId: 1
+      }, function(data) {
+        $('#result').html(`<p>ID: ${data.id}<br>Title: ${data.title}</p>`);
+      });
+    });
+  </script>
+</body>
+</html>

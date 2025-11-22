@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Insert Data with AJAX</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    #responseBox {
+      margin-top: 20px;
+      padding: 10px;
+      border: 1px solid #333;
+      background-color: #f0f0f0;
+      font-family: Arial, sans-serif;
+    }
+  </style>
+</head>
+<body>
+
+<h3>Add New Post</h3>
+
+<label>Title: <input type="text" id="title"></label><br><br>
+<label>Body: <textarea id="body"></textarea></label><br><br>
+<button id="addBtn">Insert</button>
+
+<div id="responseBox">Response will appear here...</div>
+
+<script>
+  $('#addBtn').click(function() {
+    const postData = {
+      title: $('#title').val(),
+      body: $('#body').val(),
+      userId: 1
+    };
+
+    $.ajax({
+      url: 'https://jsonplaceholder.typicode.com/posts',
+      method: 'POST',
+      data: postData,
+      success: function(response) {
+        $('#responseBox').html(
+          `<strong>Inserted Post:</strong><br>ID: ${response.id}<br>Title: ${response.title}<br>Body: ${response.body}`
+        );
+      },
+      error: function() {
+        $('#responseBox').text('Failed to insert data.');
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

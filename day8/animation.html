@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Quote Scroller</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    #quoteBox {
+      position: relative;
+      width: 100%;
+      height: 100px;
+      overflow: hidden;
+      background-color: #f0f8ff;
+      font-family: 'Georgia', serif;
+      font-size: 24px;
+      color: #2c3e50;
+      padding: 20px;
+    }
+
+    #quote {
+      position: absolute;
+      white-space: nowrap;
+    }
+
+    #scrollBtn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+
+<div id="quoteBox">
+  <div id="quote">“The best way to predict the future is to create it.”</div>
+</div>
+<button id="scrollBtn">Start Scrolling</button>
+
+<script>
+  $('#scrollBtn').click(function() {
+    const $quote = $('#quote');
+    const boxWidth = $('#quoteBox').width();
+    const quoteWidth = $quote.width();
+    let count = 0;
+
+    function scrollRight() {
+      $quote.css({ left: 0 });
+      $quote.animate({ left: boxWidth - quoteWidth }, 1000, function() {
+        count++;
+        if (count < 4) {
+          scrollRight();
+        } else {
+          scrollLeft();
+        }
+      });
+    }
+
+    function scrollLeft() {
+      $quote.animate({ left: 0 }, 1000);
+    }
+
+    scrollRight();
+  });
+</script>
+
+</body>
+</html>

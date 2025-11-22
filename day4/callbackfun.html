@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //setTimeout function<-------
+    //function to display text or indicate what is called
+    function sayHello()
+    {
+        console.log("hello from sayTimeout");
+    }
+    //function timeout set to execute after 1 sec but (not repeatedly)
+    setTimeout(sayHello,200);
+
+
+    //setInterval function<-------
+    let count=0;
+    function countdown()
+    {
+        console.log(count);
+        count++;
+    }
+    //function set to execute after every 1 sec repeatedly
+    setInterval(countdown,1000);
+ 
+    
+    //clearInterval function set to stop the repeated execution
+    const timerId=setInterval(function()
+    {
+        console.log(count);
+        count++;
+    
+        if(count>10)    //stop the timer when it reaches to 10
+    {
+        clearInterval(timerId)
+        console.log("countdown finished");
+    }
+},1000)
+
+    </script>
+</body>
+</html>

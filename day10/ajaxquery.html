@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AJAX with jQuery</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+  <h2>AJAX Demo</h2>
+
+  
+  <button id="loadBtn">Load HTML</button>
+  <div id="htmlContent"></div>
+
+  
+  <button id="getBtn">Get Text</button>
+  <div id="textContent"></div>
+
+  <script>
+    // Load HTML fragment into a div
+    $("#loadBtn").click(function() {
+      $("#htmlContent").load("example.html"); 
+    });
+
+    // Get plain text data and insert it into a div
+    $("#getBtn").click(function() {
+      $.get("data.txt", function(response) {
+        $("#textContent").text(response); 
+      });
+    });
+  </script>
+
+</body>
+</html>

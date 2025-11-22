@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>jQuery Class Methods</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    .highlight {
+      background-color: yellow;
+      font-weight: bold;
+      color: red;
+    }
+  </style>
+</head>
+<body>
+
+<p id="text">Hey im known as paragraph.</p>
+
+<button onclick="$('#text').addClass('highlight')">Add Class</button>
+<button onclick="$('#text').removeClass('highlight')">Remove Class</button>
+<button onclick="$('#text').toggleClass('highlight')">Toggle Class</button>
+
+</body>
+</html>
